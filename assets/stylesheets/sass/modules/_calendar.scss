@@ -1,0 +1,400 @@
+/**
+ * Calendar module
+ * @author John
+ *
+ * @description Appears in the Calendar page
+ *
+ * Table of Content
+ * ==================================================
+ *     # General Rules
+ *     # Themeable Parts
+ *     # Media Queries
+ */
+
+/**
+ * @section General Rules
+ * ==================================================
+ */
+
+
+#calendar-view{
+    background: $box-background;
+    border: 1px solid $cart-border-color;
+    position:relative;
+
+    #no_tickets{
+        display: none;
+    }
+
+
+    h2#cartTitle{
+        position: relative;
+        background: $cart-header-background;
+        color: $text-header;
+
+        .pin{
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            padding: 3px;
+            background-color: $clr-red;
+            @include border-radius(11px);
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+    h2#cartTitleLessThanDesktop{
+        display: none;
+        padding: 10px 20px;
+        background: $cart-header-lessThanDesktop-background;
+        color: $cart-textcolor;
+        cursor: pointer;
+        line-height: 21px;
+        font-size: inherit;
+        font-weight: bold;
+
+        .cart-show-hide{
+            float: left;
+            margin-right: 5px;
+            font-size: 21px;
+            vertical-align: middle;
+        }
+    }
+    #cartContentContainer{
+        display: block;
+    }
+
+    .box{
+
+        h5{
+            position:relative;
+            background: $cart-h5-background;
+            font-weight: bold;
+            padding: 4px 10px;
+            font-size: 1.1em;
+
+            .icon-square-cross{
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin: 0;
+            }
+
+            .tooltip{
+                font-size: 0.9em;
+                font-weight: normal;
+                word-wrap: break-word;
+            }
+        }
+
+        .head{
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+            //padding: 6px 10px 5px 40px;
+            position: relative;
+            display: table;
+        }
+
+        .icon-square-cross{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-top: -10px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .label,
+        .price{
+            padding: 10px;
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        .item-title .datetime{
+            font-weight: normal;
+            display: block;
+            clear: both;
+            margin-top: 10px;
+            font-size: .9em;
+        }
+
+        .item-subtotal,
+        .item-title{
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        .item-title{
+            width: 50%;
+            padding-left: 36px;
+        }
+
+        .item-subtotal{
+            text-align: right;
+            padding-right: 30px;
+        }
+
+        .icon-more,
+        .icon-less,
+        .icon-close{
+            font-size: 21px;
+        }
+
+        .icon-more,
+        .icon-less{
+            float: left;
+            margin-left: -28px;
+        }
+
+        .deliveryItems,
+        .paymentItems{
+            clear:both;
+        }
+
+        .item-container{
+            margin-bottom: 15px;
+            display: table;
+            width: 100%;
+
+            &.subTotal{
+                border-top: 1px dotted $table-row-border;
+                display: none;
+
+                .label{
+                    font-weight: normal;
+                }
+            }
+        }
+        .totalsContainer{
+            padding-bottom: 10px;
+            clear: both;
+
+            .total,
+            .disclaimer{
+                text-align: center;
+                padding: 5px 10px;
+            }
+
+            .total{
+                font-size: 1.1em;
+                font-weight: bold;
+            }
+        }
+
+        .row{
+            width: 100%;
+            padding: 10px 0;
+            border-bottom: 1px dotted $table-row-border;
+            margin-bottom: 0;
+
+            &:last-child{
+                border: none;
+            }
+        }
+    }
+    a{
+        color: $cart-textcolor;
+
+        &:hover{
+            text-decoration: none;
+        }
+    }
+
+    .item-table{
+        width: 100%;
+    }
+
+    .item-key{
+        text-align: right;
+        width: 90px;
+        font-weight: bold;
+        padding: 0 5px 0 10px;
+        color: $cart-textcolor;
+        vertical-align: top;
+
+    }
+
+    .item-value{
+        text-align: left;
+        padding: 0 10px 0 7px;
+        vertical-align: top;
+    }
+
+    .item-quantity,
+    .item-fee{
+        text-align: right;
+        width: 46px;
+        padding-right: 30px;
+    }
+
+    .item-remove-button{
+        position: absolute;
+        width: 22px;
+        height: 19px;
+        top: 7px;
+        right: 10px;
+    }
+
+    .jsTicket,
+    .jsAdded{
+         border-bottom: 1px dotted $table-row-border;
+        
+        .price{
+            text-align: left;
+            padding: 0 10px 0 0;
+            white-space: nowrap;
+            font-weight: normal;
+            display: block;
+        }
+    }
+
+    #giftCards{
+        display: none;
+        clear: both;
+
+        .head{
+            display: block;
+        }
+                
+        .item-table tr td{
+            padding-left: 6px;
+        }
+    }
+
+    .tt-pointer-up::after, .tt-pointer::after {
+        right:-5px;
+    }
+
+    .tooltip{
+        margin-left:-18px;
+    }
+}
+
+#cartLessThanDesktop.page-position-top {
+    margin-top: -10px;
+}
+
+/**
+ * @section Media Queries
+ * ==================================================
+ */
+
+@include less-than-desktop {
+    #cart {
+        border-top: 0;
+
+        h2#cartTitle {
+            display: none;
+        }
+        h2#cartTitleLessThanDesktop {
+            display: block;
+        }
+        #cartContentContainer {
+            display: none;
+        }
+    }
+
+    #cartLessThanDesktop{
+        &.page-position-inline{
+            border-top: 1px solid $border-table;
+            margin: 0 -20px;
+            padding-top: 16px;
+
+            #cart, .box{
+                border: none;
+            }
+
+            #cartTitleLessThanDesktop,
+            #cartContentContainer{
+                display: none !IMPORTANT;
+            }
+
+            /*&.hide-content{
+                #cartTitleLessThanDesktop,
+                #cartContentContainer{
+                    display: none !IMPORTANT;
+                }
+            }
+
+            .boxStyle &{
+                border-top: none;
+                padding-top: 0;
+            }*/
+
+        }
+    }
+}
+
+@include tablet-portrait{
+    #calendar-view{
+
+        .box{
+
+            .head{
+
+                .item-title {
+                    padding-left: 45px;
+                }
+            }
+
+            .label {
+                padding-left: 20px;
+            }
+        }
+
+        .item-key{
+            width: 120px;
+        }
+
+        .item-quantity{
+            width: 46px;
+        }
+    }
+}
+
+@include small-screen {
+
+    #cart {
+
+        h2#cartTitleLessThanDesktop {
+            padding: 10px;
+        }
+    }
+
+    #cartLessThanDesktop.page-position-top {
+        margin: -10px 10px 10px;
+    }
+
+    #cartLessThanDesktop{
+
+        &.page-position-inline{
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+    }
+
+}
+
+@include mobile-landscape{
+}
+
+@include mobile-portrait{
+    #calendar-view{
+
+         #giftCards{
+
+            .row{
+
+                .item-title{
+                    padding-left: 12px;
+                }
+            }
+        }
+    }
+}
+
