@@ -1,0 +1,69 @@
+/**
+ * Core layout
+ * Using Bootstrap v2.3.2
+ * Modified by: John
+ *
+ * @description Things to bear in mind:
+ *              - 'Default' should be desktop, with everything else overriding
+ *                  in #Media Queries
+ *
+ * Table of Content
+ * ==================================================
+ *     # Variables
+ *     # Mixins
+ *     # Site Styles
+ *     # Utility
+ *     # Page Styles
+ *     # Fixes
+ *     # Media Queries
+ */
+
+// Core variables and mixins
+@import "_variables"; 
+@import "_mixins";
+@import "_mediaQueryMixins";
+
+/**
+ * @section Site styles
+ * ==================================================
+ */
+@import "../library/_base.scss";
+
+// Components: common
+@import "_sprites";
+@import "_dropdowns";
+@import "_wells";
+@import "_component-animations";
+@import "_close";
+
+// Components: Buttons & Alerts
+@import "_buttons";
+@import "_button-groups";
+@import "_alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
+
+// Components: Nav
+@import "_navs";
+@import "_navbar";
+@import "_breadcrumbs";
+@import "_pagination";
+@import "_pager";
+
+// Components: Popovers
+@import "_modals";
+@import "_tooltip";
+@import "_popovers";
+
+// Components: Misc
+@import "_thumbnails";
+@import "_media";
+@import "_labels-badges";
+@import "_progress-bars";
+@import "_accordion";
+@import "_carousel";
+@import "_hero-unit";
+
+// Utility classes
+@import "_utilities"; // Has to be last to override when necessary
+
+// Responsive
+@import "_responsive";

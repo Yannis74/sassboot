@@ -1,0 +1,83 @@
+/**
+ * Media Queries
+ * @author      edward.hannay, rebecca.howard
+ *
+ * @description PLEASE NOTE: ANY CHANGES MADE TO THE MEDIA QUERIES WIDTHS NEED
+ *              TO BE REFLECTED IN core.jquery.js
+ *
+ *              This is the master scss file for media queries - duplication in
+ *              other files (e.g. Scandic module) is temporary, and whene
+ *              branches are merged only these rules should be left behind
+ *
+ *              The $enable-responsive variable is defined in the top level scss
+ *              file (e.g. ticketmaster.scss) and allows the media query mixins
+ *              to be disabled. If it's true, the mixins will be included but if
+ *              false, they'll be removed.
+ *
+ * Table of Content
+ * ==================================================
+ *     # Mixins
+ */
+/*    $base-width: 940px;
+    $tablet-width: 768px;
+    $mobile-portrait-width: 320px;
+    $mobile-landscape-width: 480px;*/
+
+
+ /* @section Mixins
+================================================== */
+@mixin mobile-portrait{
+
+        @media only screen and (max-width: $mobile-landscape-width - 1){
+             @content;
+        }
+
+}
+
+@mixin mobile-landscape{
+
+        @media only screen and (min-width: $mobile-landscape-width) and (max-width: ($tablet-width - 1)){
+            @content;
+        }
+
+}
+
+@mixin less-than-desktop{
+
+        @media only screen and (max-width: ($base-width - 1)){
+            @content;
+        }
+
+}
+
+@mixin tablet-portrait{
+
+        @media only screen and (min-width: ($tablet-width)) and (max-width: $base-width - 1){
+            @content;
+        }
+
+}
+
+@mixin desktop{
+
+        @media only screen and (min-width: ($base-width)){
+            @content;
+        }
+
+}
+
+@mixin large-screen{
+
+        @media only screen and (min-width: ($tablet-width - 1)){
+            @content;
+        }
+
+}
+
+@mixin small-screen{
+
+        @media only screen and (max-width: ($tablet-width - 1)){
+            @content;
+        }
+
+}

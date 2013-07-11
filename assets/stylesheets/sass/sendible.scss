@@ -1,0 +1,72 @@
+/**
+ * Sendible Theme
+ * @author john.souris
+ * @created 06/07/2013
+ *
+ * Table of Content
+ * ==================================================
+ *     # Variables
+ *     # Mixins
+ *     # Imports
+ *     # Overrides
+ *     # Modernizr dependent rules
+ *     # Media Queries
+ */
+/*
+see links for fixed chrome (sidebar)
+http://jsfiddle.net/andresilich/ukMqq/show/
+http://stackoverflow.com/questions/9350818/fixed-sidebar-navigation-in-fluid-twitter-bootstrap-2-0*/
+
+
+/**
+ * @section Variables
+ * ==================================================
+ */
+@import "partials/_defaultTheme"; // Modify this for custom colors, font-sizes, etc
+
+/**
+ * @section Imports
+ * ==================================================
+ */
+@import "partials/_layout";
+
+/**
+ * @section Overrides
+ * ==================================================
+ */
+
+
+/**
+ * @section Media Queries
+ * ==================================================
+ */
+@include less-than-desktop{
+	.nav-stacked{
+		background:#0000ff;
+	}
+}
+
+@include tablet-portrait{
+	.nav-stacked{
+		background:#00ffff;
+		height:1000px;
+	}
+}
+
+@include small-screen {
+	.nav-stacked{
+		background:#ff00ff;
+	}
+}
+
+@include mobile-landscape{
+	.nav-stacked{
+		background:#ff0000;
+	}
+}
+
+@include mobile-portrait{
+		.nav-stacked{
+		background:#555555;
+	}
+}
